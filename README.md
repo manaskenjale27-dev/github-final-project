@@ -1,74 +1,39 @@
-# Emotion Detector
+# Simple Interest Calculator
 
-A Flask web app for analyzing text with IBM Watson NLP emotion prediction. It reports anger, disgust, fear, joy, sadness, and the dominant emotion.
+This project contains a Bash script that calculates simple interest.
 
-## Project structure
+## What is simple interest?
 
-```text
-emotion-detector/
-├── emotion_detection/
-│   ├── __init__.py
-│   └── emotion_detection.py
-├── server.py
-├── test_emotion_detection.py
-├── templates/
-│   └── index.html
-├── requirements.txt
-└── README.md
-```
+Simple interest is calculated on the original principal amount for a given rate and time period.
 
-## Requirements
+Formula:
 
-- Python 3.10 or newer
-- Internet access to the emotion prediction service
-- The endpoint specified by your IBM/Coursera lab, if it differs from the default
+`simple interest = (principal × rate × time) / 100`
 
-## Run locally on macOS or Linux
+## Inputs
+
+The calculator asks the user for:
+- Principal amount
+- Annual rate of interest
+- Time period in years
+
+## How to run
+
+Make the script executable and run it:
 
 ```bash
-git clone https://github.com/manaskenjale27-dev/emotion-detector.git
-cd emotion-detector
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-python server.py
+chmod +x simple-interest.sh
+./simple-interest.sh
 ```
 
-Open http://127.0.0.1:5000 in your browser.
+Enter the principal, rate of interest, and time period when prompted. The script calculates and displays the simple interest.
 
-On Windows, activate the environment with `.venv\\Scripts\\activate`.
+## Example
 
-## Configure the Watson endpoint
+For a principal of 1000, an annual interest rate of 5%, and a time period of 2 years:
 
-The app reads the endpoint from `WATSON_EMOTION_URL`. The default is the IBM Skills Network emotion prediction endpoint used in some course labs. If your course provides a different URL or required headers, set the environment variable and update the request headers/payload in `emotion_detection/emotion_detection.py` to match the lab instructions.
+`simple interest = (1000 × 5 × 2) / 100 = 100`
 
-macOS/Linux:
+## License
 
-```bash
-export WATSON_EMOTION_URL="https://your-course-endpoint"
-python server.py
-```
-
-Do not commit credentials, access tokens, or private endpoints into a public repository. If your course endpoint requires authentication, use environment variables and follow the course's instructions.
-
-## Tests
-
-The unit tests mock the HTTP response so they can test parsing and error handling without depending on the live service.
-
-```bash
-python -m unittest -v
-```
-
-## Endpoint
-
-`POST /emotionDetector` accepts form data with the key `textToAnalyze`. It returns JSON containing the five emotion scores and `dominant_emotion`. Blank text returns HTTP 400. A service connection or response failure returns HTTP 502.
-
-## Screenshots for course submission
-
-1. Start the app and open it in a browser.
-2. Submit a sentence and capture the result if the configured service responds successfully.
-3. Submit whitespace-only input and capture the validation message.
-4. Save the screenshots locally using the filenames required by your course grader.
-
-Capture screenshots from your own running app; this repository does not claim that the live endpoint has been verified.
+This project is licensed under the Apache License 2.0. See the LICENSE file for details.
