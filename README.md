@@ -1,39 +1,14 @@
-# Simple Interest Calculator
+# CI/CD Final Project
 
-This project contains a Bash script that calculates simple interest.
+Project: CI/CD Tools and Practices Final Project
 
-## What is simple interest?
+This repository demonstrates continuous integration and continuous delivery using GitHub Actions, Tekton, and OpenShift Pipelines.
 
-Simple interest is calculated on the original principal amount for a given rate and time period.
+## CI workflow
+The GitHub Actions workflow runs dependency installation, code linting with flake8, and unit tests with nose.
 
-Formula:
+## Tekton pipeline
+Tekton tasks include workspace cleanup and automated unit tests using nose.
 
-`simple interest = (principal × rate × time) / 100`
-
-## Inputs
-
-The calculator asks the user for:
-- Principal amount
-- Annual rate of interest
-- Time period in years
-
-## How to run
-
-Make the script executable and run it:
-
-```bash
-chmod +x simple-interest.sh
-./simple-interest.sh
-```
-
-Enter the principal, rate of interest, and time period when prompted. The script calculates and displays the simple interest.
-
-## Example
-
-For a principal of 1000, an annual interest rate of 5%, and a time period of 2 years:
-
-`simple interest = (1000 × 5 × 2) / 100 = 100`
-
-## License
-
-This project is licensed under the Apache License 2.0. See the LICENSE file for details.
+## OpenShift deployment
+The application is deployed to OpenShift and listens on port 8000 when the application container is running.
